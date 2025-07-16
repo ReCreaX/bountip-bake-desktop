@@ -1,0 +1,17 @@
+{
+  "name": "bountip-bake-desktop",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:electron\" \"npm:dev:next\"",
+    "dev:next": "cd frontend && npm run dev",
+"dev:electron": "wait-on http://localhost:3000 && tsc -p tsconfig.electron.json && electron .",
+
+    "build": "cd frontend && npm run build && tsc -p tsconfig.electron.json",
+    "start": "electron .",
+
+    "package": "npm run build && electron-forge make"
+  },
+  "devDependencies": {
+    
+  }
+}
