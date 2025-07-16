@@ -1,0 +1,27 @@
+{
+  "name": "bountip-bake-desktop",
+  "version": "1.0.0",
+  "main": "electron/main.ts",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:electron\"",
+    "dev:backend": "npm run start:nest",  
+    "dev:frontend": "npm run dev",  
+    "dev:electron": "electron .",  
+    "start": "electron .",  
+    "build": "next build",  
+    "start:nest": "cd backend && npm run start", 
+    "start:next": "cd frontend && npm run start", 
+    "package": "electron-forge package",  
+    "make": "electron-forge make",  
+    "postinstall": "electron-forge postinstall"  
+  },
+  "devDependencies": {
+    "electron": "^23.0.0",
+    "electron-forge": "^6.0.0",
+    "concurrently": "^7.0.0",
+    "typescript": "^4.5.0",
+    "next": "^13.0.0",
+    "tailwindcss": "^2.0.0",
+    "wait-on": "^5.0.0"
+  }
+}
