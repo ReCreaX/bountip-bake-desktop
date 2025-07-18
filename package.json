@@ -1,0 +1,35 @@
+{
+  "name": "bountip-bake-desktop-app",
+  "version": "1.0.0",
+  "description": "Bountip Bake Desktop Application",
+  "author": "Recreax",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:next\" \"npm:dev:electron\"",
+    "dev:next": "cd frontend && npm run dev",
+    "dev:electron": "wait-on http://localhost:3000 && tsc -p tsconfig.electron.json && electron .",
+    "build": "cd frontend && npm run build && cd .. && npx tsc -p tsconfig.electron.json",
+    "start": "electron .",
+    "package": "npm run build && electron-forge make"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron-forge/plugin-webpack": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron": "^1.4.38",
+    "@types/node": "^24.0.14",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^37.2.1",
+    "typescript": "^5.8.3",
+    "wait-on": "^8.0.3"
+  }
+}
